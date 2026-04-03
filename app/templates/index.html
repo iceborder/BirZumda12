@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %} Bosh sahifa {% endblock title %}
+
+{% block content %}
+    <main class="page-section">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Zamonaviy texnika <span>Bir Zumda</span> uyingizda!</h1>
+                    <p>Eng so'nggi rusumdagi smartfonlar, noutbuklar va maishiy texnikalarni qulay narxlarda va rasmiy
+                        kafolat bilan xarid qiling.</p>
+                    <a href="mahsulotlar.html" class="btn btn-accent" style="font-size:1.1rem; padding:15px 35px;">Mahsulotlarga
+                        o'tish <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-image">
+                    {#                <img {{ product.img.url }}://images.unsplash.com/photo-1605164566891-139bfed4fd62?auto=format&fit=crop&q=80&w=800&h=600" alt="Bir Zumda texnika">#}
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Tezkor yetkazib berish</h3>
+                    <p>Toshkent bo'ylab 2 soat ichida yetkaziladi</p></div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-check"></i></div>
+                    <h3>Rasmiy kafolat</h3>
+                    <p>Barcha mahsulotlarga 1-3 yillik kafolat</p></div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h3>Muddatli to'lov</h3>
+                    <p>Boshlang'ich to'lovsiz, qulay shartlarda</p></div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>24/7 Qo'llab-quvvatlash</h3>
+                    <p>Siz uchun doim aloqadamiz</p></div>
+            </div>
+
+            <div class="section-title mt-4"><h2>Top Sotuvlar</h2>
+                <p>Xaridorlarimizning eng ko'p tanlagan texnikalari</p>
+                <div class="line"></div>
+            </div>
+            {% for product in products %}
+                <div class="product-grid">
+
+                    <div class="product-card">
+                        <div class="badge">Aksiya</div>
+                        <a href="{% url 'mahsulot-detail' product.pk %}" class="product-img"><img
+                                src="{{ product.img.url }}" alt="iPhone 15 Pro Max"></a>
+                        <div class="product-info">
+                            <div class="product-category">Smartfonlar</div>
+                            <h3 class="product-title"><a href={% url 'mahsulot-detail' product.pk %}>iPhone 15 Pro
+                                Max</a></h3>
+                            <div class="product-price-row">
+                                <div class="price-box"><span class="old-price">13 499 000 so'm</span><span
+                                        class="price">12 999 000 so'm</span></div>
+                                <a href="savatcha.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                            </div>
+                            <a href="{% url 'mahsulot-detail' product.pk %}" class="btn btn-outline"
+                               style="margin-top:14px;width:100%;">Batafsil</a></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="badge">Yangi</div>
+                        <a href="{% url 'mahsulot-detail' product.pk %}" class="product-img"><img
+                                src="{{ product.img.url }}" alt="Samsung Galaxy S24 Ultra"></a>
+                        <div class="product-info">
+                            <div class="product-category">Smartfonlar</div>
+                            <h3 class="product-title"><a href={% url 'mahsulot-detail' product.pk %}>Samsung Galaxy S24
+                                Ultra</a></h3>
+                            <div class="product-price-row">
+                                <div class="price-box"><span class="price">11 799 000 so'm</span></div>
+                                <a href="savatcha.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                            </div>
+                            <a href="{% url 'mahsulot-detail' product.pk %}" class="btn btn-outline"
+                               style="margin-top:14px;width:100%;">Batafsil</a></div>
+                    </div>
+                    <div class="product-card">
+                        <div class="badge">TOP</div>
+                        <a href="{% url 'mahsulot-detail' product.pk %}" class="product-img"><img
+                                src="{{ product.img.url }}" alt="MacBook Air M3"></a>
+                        <div class="product-info">
+                            <div class="product-category">Noutbuklar</div>
+                            <h3 class="product-title"><a href="{% url 'mahsulot-detail' product.pk %}">MacBook Air M3
+                                13"</a></h3>
+                            <div class="product-price-row">
+                                <div class="price-box"><span class="old-price">16 200 000 so'm</span><span
+                                        class="price">15 499 000 so'm</span></div>
+                                <a href="savatcha.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                            </div>
+                            <a href="{% url 'mahsulot-detail' product.pk %}" class="btn btn-outline"
+                               style="margin-top:14px;width:100%;">Batafsil</a></div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+            <div class="promo-banner">
+                <div class="promo-content"><h2>Yangi iPhone 15 Pro <br><span>Sotuvda!</span></h2>
+                    <p style="font-size:1.2rem; margin-bottom:25px; opacity:0.9;">Titanium korpus, A17 Pro chip va
+                        professional kameralar tizimi. Hozir xarid qiling va maxsus sovg'aga ega bo'ling.</p><a
+                            href="mahsulotlar.html" class="btn btn-primary"
+                            style="background: var(--white); color: var(--text-dark);">Batafsil ko'rish</a></div>
+            </div>
+
+            <div class="section-title mt-4"><h2>Yangi Kelganlar</h2>
+                <p>Eng so'nggi texnologiya yangiliklari</p>
+                <div class="line"></div>
+            </div>
+
+            {% for product in products %}
+                <div class="product-card">
+
+                    <div class="badge">Yangi</div>
+
+                    <a href="{% url 'mahsulot-detail' product.pk %}" class="product-img">
+                        <img src="{{ product.img.url }}" alt="{{ product.name }}">
+                    </a>
+
+                    <div class="product-info">
+                        <div class="product-category">{{ product.category }}</div>
+
+                        <h3 class="product-title">
+                            <a href="{% url 'mahsulot-detail' product.pk %}">
+                                {{ product.name }}
+                            </a>
+                        </h3>
+
+                        <div class="product-price-row">
+                            <div class="price-box">
+                                <span class="price">{{ product.price }}</span>
+                            </div>
+                        </div>
+
+                        <a href="{% url 'mahsulot-detail' product.pk %}" class="btn btn-outline">
+                            Batafsil
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        </div>
+    </main>
+{% endblock content %}
